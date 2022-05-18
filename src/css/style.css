@@ -1,0 +1,314 @@
+/* :root[data-theme='dark'] {
+    --font-color: white;
+    --bg-color-nav: black;
+    --bg-all-color: rgba(0,0,0,0.5);
+    --bg-color-first: rgba(0,0,0,0.6);
+    --bg-color-second: rgba(0,0,0,0.9);
+} */
+
+* {
+    scroll-behavior: smooth !important;
+}
+
+:root[data-theme='dark'] {
+    --font-color: white;
+    --bg-color-nav: black;
+    --bg-all-color: rgba(0,0,0,0.5);
+    /* --bg-color-first: linear-gradient(45deg, #000000, #021212); */
+    /* --bg-color-second: linear-gradient(150deg, #021212, #000000); */
+    --bg-color-first: rgba(0,0,0,0.8);
+    --bg-color-second: rgba(0,0,0,0.9);
+    --color-shadow: white;
+    --toggler-color: cyan;
+    --bg-project-list: darkslategray;
+    --bg-project-list-hover: darkcyan;
+}
+
+:root[data-theme='light'] {
+    --font-color: black;
+    --bg-color-nav: white;
+    --bg-all-color: ghostwhite;
+    --bg-color-first:white;
+    --bg-color-second: ghostwhite;
+    --color-shadow: rgba(0,0,0,0.7);
+    --toggler-color: darkcyan;
+    --bg-project-list: darkcyan;
+    --bg-project-list-hover: cyan;
+}
+
+.display-flex {
+    display: flex;
+}
+
+body {
+    font-family: system-ui;
+    background-color: var(--bg-all-color);
+    margin: 0;
+}
+
+header {
+    position: sticky;
+    top: 0;
+}
+
+header nav {
+    background: var(--bg-color-nav);
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 2px 6px var(--color-shadow);
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+header nav ul li {
+    transition-duration: 0.5s;
+}
+
+header nav ul li:hover {
+    transform: translateY(4px);
+}
+
+header nav button {
+    padding: 2px 2px;
+}
+
+header nav ul li a {
+    color: var(--font-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+header nav #toggle-nav {
+    display: none;
+}
+
+
+/* Toggle mode style */
+#toggle-mode input#checkbox {
+    display: none;
+}
+
+#toggle-mode {
+    display: block;
+    width: 60px;
+    height: 30px;
+    border: 2px solid var(--toggler-color);
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+    align-self: center;
+    right: 15px;
+}
+
+#ball,
+.moon,
+.sun {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.moon {
+    left: 6px;
+    font-size: 1.2rem;
+    color: gold;
+}
+
+.sun {
+    right: 6px;
+    font-size: 1.2rem;
+}
+
+#ball {
+    display: inline-block;
+    background-color: var(--toggler-color);
+    height: 28px;
+    width: 28px;
+    z-index: 5;
+    left: 1px;
+    border-radius: 50%;
+    transition-duration: 0.4s;
+}
+
+input#checkbox:checked + #ball {
+    transform: translate(29px, -50%);
+}
+
+/* ======== */
+
+#my-photo {
+    max-width: 300px;
+}
+
+#home div {
+    justify-content: space-around;
+}
+
+#home h2 {
+    font-size: 2rem;
+}
+
+#home p {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+#home p:nth-child(3) {
+    font-style: italic;
+}
+
+div .even-section {
+    background: var(--bg-color-first);
+}
+
+div .odd-section {
+    background: var(--bg-color-second);
+}
+
+div section {
+    color: var(--font-color);
+    min-height: 250px;
+    padding: 0.7rem 2rem;
+    /* transform: translateZ(0); */
+}
+
+div section div {
+    gap: 1rem;
+}
+
+div section h2 {
+    margin: 0;
+    text-decoration: underline;
+    text-align: center;
+}
+
+div a {
+    color: var(--font-color);
+    text-decoration: none;
+}
+
+#my_project #project-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+#project-wrapper div {
+    min-width: 200px;
+    max-width: 24%;
+    margin: 1rem 0;
+    background-color: var(--bg-project-list);
+}
+
+#project-wrapper div a h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    padding: 1.2rem 0.5rem;
+    margin: 0;
+}
+
+#project-wrapper div a h3:hover {
+    background-color: var(--bg-project-list-hover);
+    /* color: white; */
+}
+
+#project-wrapper div a img {
+    width: 100%;
+    object-fit: cover;
+    height: 80%;
+}
+
+section .account-wrapper {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 2rem;
+}
+
+section .sosial-account {
+    transition-duration: 0.5s;
+}
+
+section .sosial-account:hover {
+    transform: translateY(-6px);
+}
+
+section .sosial-account a {
+    font-size: 1.2rem;
+}
+
+section#contact form {
+    max-width: 500px;
+    margin: 2rem auto;
+    box-shadow: 1px 1px 3px var(--color-shadow), 
+    -1px -1px 3px var(--color-shadow);
+    padding: 1rem;
+}
+
+form h3 {
+    text-align: center;
+    margin: 0;
+}
+
+form table tbody tr .label {
+    width: 5%;
+}
+
+form .field input {
+    width: 95%;
+    height: 2rem;
+    border-radius: 0;
+    border: 1px solid gray;
+}
+
+form .field input:focus,
+form .field textarea:focus,
+form button[type='submit']:focus {
+    outline: gold solid 1px;
+}
+
+form .field textarea {
+    width: 95%;
+    max-width: 410px;
+    border: 1px solid gray;
+}
+
+form button[type='submit'] {
+    display: block;
+    width: 100%;
+    height: 2.4rem;
+    background: darkcyan;
+    cursor: pointer;
+    color: white;
+    font-size: 1rem;
+    text-transform: uppercase;
+    border: 0;
+}
+
+footer div {
+    padding: 1rem;
+    color: var(--font-color);
+    background: var(--bg-color-nav);
+    font-weight: 600;
+    font-style: italic;
+    box-shadow: 0 -2px 4px var(--color-shadow);
+}
+
+
+/* media query style */
+@media (max-width: 600px){
+    header nav ul {
+        flex-direction: column;
+    }
+
+    #home div {
+        flex-direction: column;
+    }
+}
